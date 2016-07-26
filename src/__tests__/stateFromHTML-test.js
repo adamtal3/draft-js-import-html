@@ -6,9 +6,8 @@ import parseHTML from '../parseHTML';
 import {convertToRaw} from 'draft-js';
 
 describe('stateFromHTML', () => {
-  let html = '<p>Hello World</p>';
-
   it('should create content state', () => {
+    let html = '<p>Hello World</p>';
     let contentState = stateFromHTML(html);
     let rawContentState = convertToRaw(contentState);
     let blocks = removeKeys(rawContentState.blocks);
@@ -18,6 +17,7 @@ describe('stateFromHTML', () => {
   });
 
   it('should accept a custom parser', () => {
+    let html = '<p>Hello World</p>';
     let calledWith = [];
     let customParser = (...args) => {
       calledWith.push(args);
